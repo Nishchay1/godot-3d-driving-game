@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://cy415qncw8285"]
+
+[ext_resource type="Texture2D" uid="uid://bc2p1jxgy12tp" path="res://assets/ui/left.png" id="1_qrjs1"]
+[ext_resource type="Texture2D" uid="uid://bdpdadvgfee0f" path="res://assets/ui/right.png" id="2_v7ngv"]
+[ext_resource type="Texture2D" uid="uid://l4cdclffcouk" path="res://assets/ui/acceleration_pedal.png" id="3_tagsi"]
+[ext_resource type="Texture2D" uid="uid://crftjix3g7pg8" path="res://assets/ui/brake_pedal.png" id="4_w1ypt"]
+[ext_resource type="Texture2D" uid="uid://wn1jr6sv8nvo" path="res://assets/ui/boost.png" id="5_jtnk0"]
+
+[node name="TouchControls" type="CanvasLayer"]
+
+[node name="LeftButton" type="TouchScreenButton" parent="."]
+position = Vector2(31, 570)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("1_qrjs1")
+action = "steer_left"
+
+[node name="RightButton" type="TouchScreenButton" parent="."]
+position = Vector2(216, 569)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("2_v7ngv")
+action = "steer_right"
+
+[node name="AccelerateButton" type="TouchScreenButton" parent="."]
+position = Vector2(1088, 502)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("3_tagsi")
+action = "accelerate"
+
+[node name="BrakeButton" type="TouchScreenButton" parent="."]
+position = Vector2(958, 581)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("4_w1ypt")
+action = "brake"
+
+[node name="BoostButton" type="TouchScreenButton" parent="."]
+position = Vector2(1128, 309)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("5_jtnk0")
+action = "boost"

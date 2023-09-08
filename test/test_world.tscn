@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvtpmsobfxp5g"]
+
+[ext_resource type="PackedScene" uid="uid://bfeiglemr6xda" path="res://scenes/level.tscn" id="1_xgo0e"]
+[ext_resource type="PackedScene" uid="uid://bodo8s6pojve8" path="res://assets/levels/level15.glb" id="5_ae3es"]
+
+[node name="TestWorld" instance=ExtResource("1_xgo0e")]
+has_speed_requirement = true
+speed_requirement = 20.0
+
+[node name="FinishArea" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.017)
+
+[node name="level15" parent="." index="8" instance=ExtResource("5_ae3es")]

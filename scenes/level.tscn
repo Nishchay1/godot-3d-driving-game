@@ -1,0 +1,49 @@
+[gd_scene load_steps=10 format=3 uid="uid://bfeiglemr6xda"]
+
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_2iln5"]
+[ext_resource type="PackedScene" uid="uid://c5rrni0vr7f7v" path="res://scenes/pause.tscn" id="2_t1j42"]
+[ext_resource type="PackedScene" uid="uid://cy415qncw8285" path="res://scenes/touch_controls.tscn" id="3_121ub"]
+[ext_resource type="PackedScene" uid="uid://vrcaxdvr84jm" path="res://scenes/finish_area.tscn" id="4_85xw3"]
+[ext_resource type="PackedScene" uid="uid://beduylk4f43ta" path="res://scenes/pop_up_message.tscn" id="5_xlf6s"]
+[ext_resource type="PackedScene" uid="uid://cpnct8xp0gogv" path="res://scenes/objectives_display.tscn" id="6_728om"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b4exl"]
+sky_top_color = Color(0, 0.454902, 0.796078, 1)
+sky_horizon_color = Color(0.541176, 0.655882, 0.740196, 1)
+ground_bottom_color = Color(0.164706, 0.168627, 0.164706, 1)
+ground_horizon_color = Color(0.541176, 0.655882, 0.740196, 1)
+
+[sub_resource type="Sky" id="Sky_yxlpa"]
+sky_material = SubResource("ProceduralSkyMaterial_b4exl")
+
+[sub_resource type="Environment" id="Environment_lfixk"]
+background_mode = 2
+sky = SubResource("Sky_yxlpa")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_2iln5")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lfixk")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.44708, 0.22388, 0, 0.447758, 0.894155, -0.500003, 0.774359, -0.387769, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Pause" parent="." instance=ExtResource("2_t1j42")]
+
+[node name="TouchControls" parent="." instance=ExtResource("3_121ub")]
+
+[node name="FinishArea" parent="." instance=ExtResource("4_85xw3")]
+
+[node name="SpawnPoint" type="Node3D" parent="."]
+
+[node name="PopUpMessage" parent="." instance=ExtResource("5_xlf6s")]
+
+[node name="ObjectivesDisplay" parent="." instance=ExtResource("6_728om")]
+
+[connection signal="finished" from="FinishArea" to="." method="_on_finish_area_finished"]

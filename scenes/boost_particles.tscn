@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://b437saoy3iw0f"]
+
+[ext_resource type="Texture2D" uid="uid://bl2dpv5loc8ag" path="res://assets/fire.png" id="1_yt830"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v3dhe"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_yt830")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_rxcti"]
+material = SubResource("StandardMaterial3D_v3dhe")
+
+[sub_resource type="Gradient" id="Gradient_8jco5"]
+offsets = PackedFloat32Array(0.151007, 0.355705, 0.567114, 0.815436)
+colors = PackedColorArray(0.95592, 0.157818, 3.85046e-07, 1, 0.956863, 0.439216, 0, 1, 0.956863, 0.290196, 0, 1, 1, 0.419608, 0.0705882, 1)
+
+[node name="BoostParticles" type="Node3D"]
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+amount = 50
+lifetime = 0.2
+mesh = SubResource("QuadMesh_rxcti")
+direction = Vector3(0, 0, 1)
+spread = 15.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_max = 3.0
+color_ramp = SubResource("Gradient_8jco5")

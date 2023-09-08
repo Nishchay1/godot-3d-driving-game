@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd12q6cymmp7"]
+
+[ext_resource type="Theme" uid="uid://bbkladv6d2xeb" path="res://ui_theme.tres" id="1_05g34"]
+[ext_resource type="Script" path="res://scripts/options_menu.gd" id="1_knfi1"]
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_knfi1")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.457422
+anchor_top = 0.178
+anchor_right = 0.542578
+anchor_bottom = 0.236333
+offset_left = 54.5
+offset_right = -54.5
+offset_bottom = -0.240005
+grow_horizontal = 2
+theme = ExtResource("1_05g34")
+theme_override_font_sizes/font_size = 30
+text = "options."
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.5
+offset_top = -33.0
+offset_right = 28.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MusicButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_05g34")
+text = "Music"
+
+[node name="SoundButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_05g34")
+text = "Sound"
+
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_05g34")
+text = "Back"
+
+[connection signal="pressed" from="VBoxContainer/MusicButton" to="." method="_on_music_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SoundButton" to="." method="_on_sound_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

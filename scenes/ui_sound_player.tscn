@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk4lx52w65tfq"]
+
+[ext_resource type="Script" path="res://scripts/ui_sound_player.gd" id="1_3symi"]
+[ext_resource type="AudioStream" uid="uid://2pgjyiomg65v" path="res://assets/audio/ui/bong_001.ogg" id="2_0h0wk"]
+
+[node name="UISoundPlayer" type="Node"]
+process_mode = 3
+script = ExtResource("1_3symi")
+
+[node name="ButtonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_0h0wk")
+bus = &"Sound"

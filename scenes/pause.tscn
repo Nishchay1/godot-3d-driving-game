@@ -1,0 +1,103 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5rrni0vr7f7v"]
+
+[ext_resource type="Texture2D" uid="uid://c2xbdoj86cll5" path="res://assets/ui/pause.png" id="1_0oej8"]
+[ext_resource type="Script" path="res://scripts/pause.gd" id="1_kh8e8"]
+[ext_resource type="Theme" uid="uid://bbkladv6d2xeb" path="res://ui_theme.tres" id="2_ohtnj"]
+
+[node name="Pause" type="CanvasLayer"]
+process_mode = 3
+layer = 2
+script = ExtResource("1_kh8e8")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseMenu" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.721569)
+
+[node name="Label" type="Label" parent="Control/PauseMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.459375
+anchor_top = 0.177833
+anchor_right = 0.540625
+anchor_bottom = 0.236167
+offset_left = 23.5
+offset_top = 17.46
+offset_right = -23.5
+offset_bottom = -17.46
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_ohtnj")
+theme_override_font_sizes/font_size = 30
+text = "paused."
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -21.5
+offset_right = 35.0
+offset_bottom = 21.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResumeButton" type="Button" parent="Control/PauseMenu/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_ohtnj")
+text = "Resume"
+
+[node name="RestartButton" type="Button" parent="Control/PauseMenu/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_ohtnj")
+text = "Restart"
+
+[node name="MusicButton" type="Button" parent="Control/PauseMenu/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_ohtnj")
+text = "Music"
+
+[node name="SoundButton" type="Button" parent="Control/PauseMenu/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_ohtnj")
+text = "Sound"
+
+[node name="QuitButton" type="Button" parent="Control/PauseMenu/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_ohtnj")
+text = "Quit"
+
+[node name="PauseButton" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_bottom = 48.0
+grow_horizontal = 0
+texture_normal = ExtResource("1_0oej8")
+
+[connection signal="pressed" from="Control/PauseMenu/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Control/PauseMenu/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Control/PauseMenu/VBoxContainer/MusicButton" to="." method="_on_music_button_pressed"]
+[connection signal="pressed" from="Control/PauseMenu/VBoxContainer/SoundButton" to="." method="_on_sound_button_pressed"]
+[connection signal="pressed" from="Control/PauseMenu/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Control/PauseButton" to="." method="_on_pause_button_pressed"]

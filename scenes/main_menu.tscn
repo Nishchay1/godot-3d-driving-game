@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=3 uid="uid://dxojidsklstsw"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_8r3j7"]
+[ext_resource type="Theme" uid="uid://bbkladv6d2xeb" path="res://ui_theme.tres" id="2_d4ghm"]
+[ext_resource type="FontFile" uid="uid://cpqgtmv3a2cst" path="res://assets/fonts/Montserrat/static/Montserrat-Regular.ttf" id="2_dklyn"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7edhb"]
+sky_top_color = Color(0, 0.454902, 0.796078, 1)
+sky_horizon_color = Color(0.541176, 0.655882, 0.740196, 1)
+ground_bottom_color = Color(0.164706, 0.168627, 0.164706, 1)
+ground_horizon_color = Color(0.541176, 0.655882, 0.740196, 1)
+
+[sub_resource type="Sky" id="Sky_xhy6r"]
+sky_material = SubResource("ProceduralSkyMaterial_7edhb")
+
+[sub_resource type="Environment" id="Environment_g7kas"]
+background_mode = 2
+sky = SubResource("Sky_xhy6r")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MainMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8r3j7")
+
+[node name="Label" type="Label" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.267
+anchor_right = 1.0
+anchor_bottom = 0.267
+offset_bottom = 65.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_dklyn")
+theme_override_font_sizes/font_size = 90
+text = "drive rush 3d."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.55
+anchor_right = 0.6
+anchor_bottom = 0.75
+offset_left = 0.279968
+offset_top = -0.0400085
+offset_right = -0.280029
+offset_bottom = 0.039978
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="PlayButton" type="Button" parent="MainMenu/Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_d4ghm")
+text = "Play"
+
+[node name="OptionsButton" type="Button" parent="MainMenu/Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_d4ghm")
+text = "Options"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_g7kas")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.44708, 0.223881, 0.490416, -0.67225, 0.554591, -0.0974431, 0.590084, 0.80144, 0, 1.65305, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.29579, 3.12086)
+
+[connection signal="pressed" from="MainMenu/Buttons/PlayButton" to="MainMenu" method="_on_play_button_pressed"]
+[connection signal="pressed" from="MainMenu/Buttons/OptionsButton" to="MainMenu" method="_on_options_button_pressed"]

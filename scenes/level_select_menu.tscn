@@ -1,0 +1,100 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvd0g0r1khawx"]
+
+[ext_resource type="Script" path="res://scripts/level_select_menu.gd" id="1_28bse"]
+[ext_resource type="Theme" uid="uid://bbkladv6d2xeb" path="res://ui_theme.tres" id="2_2s3d8"]
+
+[node name="LevelSelectMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_28bse")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.243137, 0.243137, 0.243137, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LeftButton" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("2_2s3d8")
+text = "<"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LevelName" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_2s3d8")
+theme_override_font_sizes/font_size = 30
+text = "Level Image:"
+
+[node name="LevelImage" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_2s3d8")
+theme_override_font_sizes/font_size = 30
+text = "Description:"
+
+[node name="LevelDescription" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_2s3d8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 2
+theme = ExtResource("2_2s3d8")
+text = "Start"
+
+[node name="BackButton" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 2
+theme = ExtResource("2_2s3d8")
+text = "Back"
+
+[node name="RightButton" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+theme = ExtResource("2_2s3d8")
+text = ">"
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/HBoxContainer/LeftButton" to="." method="_on_left_button_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/HBoxContainer/RightButton" to="." method="_on_right_button_pressed"]

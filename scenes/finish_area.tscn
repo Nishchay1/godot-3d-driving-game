@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://vrcaxdvr84jm"]
+
+[ext_resource type="PackedScene" uid="uid://drwm44k7dtp6a" path="res://assets/finish.glb" id="1_j0w37"]
+[ext_resource type="Script" path="res://scripts/finish_area.gd" id="1_p8rbx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2i4pj"]
+size = Vector3(6.77304, 3.99395, 0.0985018)
+
+[node name="FinishArea" type="Area3D"]
+script = ExtResource("1_p8rbx")
+
+[node name="finish" parent="." instance=ExtResource("1_j0w37")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0025, 0)
+shape = SubResource("BoxShape3D_2i4pj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

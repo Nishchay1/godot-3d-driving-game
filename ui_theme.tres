@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bbkladv6d2xeb"]
+
+[ext_resource type="FontFile" uid="uid://cvy6jltubc0jj" path="res://assets/fonts/Oxygen/Oxygen-Regular.ttf" id="2_lr0tg"]
+
+[resource]
+Button/font_sizes/font_size = 30
+Button/fonts/font = ExtResource("2_lr0tg")
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("2_lr0tg")
